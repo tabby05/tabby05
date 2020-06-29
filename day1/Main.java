@@ -1,22 +1,22 @@
 package day1;
 
-public class Main {	// ¹öºí Á¤·Ä ¿¹Á¦
+public class Main {	// ë²„ë¸” ì •ë ¬ ì˜ˆì œ
 	public static void main(String[] args) {
-		int[] arr = {6, 5, 4, 32, 1, 78, 9};	// ¹è¿­ ¼±¾ğ ¹× °ª ´ëÀÔ
+		int[] arr = {6, 5, 4, 32, 1, 78, 9};	// ë°°ì—´ ì„ ì–¸ ë° ê°’ ëŒ€ì…
 		int i, j, temp;
 		
-		for(i = 0; i < arr.length; i++) {
+		for(i = 0; i < arr.length-1; i++) {
 			for(j = 0; j < arr.length - 1; j++) {
 				if (arr[j] > arr[j+1]) {
-					temp = arr[j];		// temp¿¡ j ´ëÀÔ
-					arr[j] = arr[j+1];	// j¿¡ j+1 ´ëÀÔ
-					arr[j+1] = temp;	// j+1¿¡ temp ´ëÀÔ
+					temp = arr[j];		// tempì— j ëŒ€ì…
+					arr[j] = arr[j+1];	// jì— j+1 ëŒ€ì…
+					arr[j+1] = temp;	// j+1ì— temp ëŒ€ì…
 				}
 			}
 		}
-		System.out.print("°á°ú°ª: ");
+		System.out.print("ê²°ê³¼ê°’: ");
 		for(i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");		// ¹è¿­ arr Ãâ·Â
+			System.out.print(arr[i] + " ");		// ë°°ì—´ arr ì¶œë ¥
 		}
 	}
 }
