@@ -6,17 +6,17 @@ public class SelectionSort {
 		int temp, min;
 		
 		for(int i = 0; i < arr.length - 1; i++) {
-			min = i; 	// °¡Àå ¾ÕÀÇ °ª
+			min = i; 	
 			for(int j = i + 1; j < arr.length; j++) {
-				if(arr[min] > arr[j]) {		// ¼±ÅÃÇÑ °ª°ú °¡Àå ¾ÕÀÇ °ªÀ» ºñ±³ÇÏ´Â ÄÚµå
+				if(arr[min] > arr[j]) {		// ì„ íƒí•œ ê°’ê³¼ ê°€ì¥ ì•ì˜ ê°’ì„ ë¹„êµí•˜ëŠ” ì½”ë“œ
 					min = j;
 				}
 			}
-			temp = arr[i];		// ¼±ÅÃÇÑ À§Ä¡ÀÇ °ª°ú
-			arr[i] = arr[min];	// ÃÖ¼Ò°ªÀ»
-			arr[min] = temp;	// ±³È¯ÇÏ´Â ÄÚµå
+			temp = arr[i];		// ì„ íƒí•œ ìœ„ì¹˜ì˜ ê°’ê³¼
+			arr[i] = arr[min];	// ìµœì†Œê°’ì„
+			arr[min] = temp;	// êµí™˜í•˜ëŠ” ì½”ë“œ
 		}
-		System.out.print("°á°ú°ª: ");
+		System.out.print("ê²°ê³¼ê°’: ");
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
