@@ -2,19 +2,19 @@ package day3;
 
 public class InsertionSort {
 	public static void main(String[] args) {
-		int[] arr = {2, 1, 4, 3};		// ¹è¿­ ¼±¾ğ
+		int[] arr = {2, 1, 4, 3};		// ë°°ì—´ ì„ ì–¸
 		int temp, j, i;
 		
 		for(i = 1 ; i < arr.length; i ++) {
-			temp = arr[i];		// »ğÀÔÇÒ °ªÀ» temp¿¡ ÀúÀå
-			for(j = i - 1; j >= 0 && arr[j] > temp; j--) { 	// »ğÀÔ °ªÀÌ Á¤·ÄµÈ °ªµéº¸´Ù ÀÛÀº °æ¿ì
-				arr[j+1] = arr[j];							// °ªÀ» ¹Ù²ãÁØ´Ù
+			temp = arr[i];		// ì‚½ì…í•  ê°’ì„ tempì— ì €ì¥
+			for(j = i - 1; j >= 0 && arr[j] > temp; j--) { 	// ì‚½ì… ê°’ì´ ì •ë ¬ëœ ê°’ë“¤ë³´ë‹¤ ì‘ì€ ê²½ìš°
+				arr[j+1] = arr[j];			// ê°’ì„ ë°”ê¿”ì¤€ë‹¤
 			}
 			arr[j+1] = temp;
 		}
-		System.out.print("°á°ú°ª: ");
+		System.out.print("ê²°ê³¼ê°’: ");
 		for(i = 0 ; i < arr.length ; i ++) {
-			System.out.print(arr[i] + " ");		// Á¤·ÄµÈ ¹è¿­ Ãâ·Â
+			System.out.print(arr[i] + " ");		// ì •ë ¬ëœ ë°°ì—´ ì¶œë ¥
 		}
 
 	}
