@@ -9,7 +9,7 @@ public class MergeSort {
 	private static void mergeSort(int[] arr, int[] temp, int start, int end) {	// 배열을 정렬하는 함수 (재귀함수)
 		if (start < end) {	// start가 end보다 작을 경우에함 재귀 호출
 			int mid = (start + end) / 2;		// 배열을 가운데로 잘라야 하므로 가운데 index가 필요.
-			mergeSort(arr, temp, start, mid); 	// 배열의 留觀
+			mergeSort(arr, temp, start, mid); 	// 배열의 앞부분
 			mergeSort(arr, temp, mid + 1, end);	// 배열의 뒷부분
 			merge(arr, temp, start, mid, end);	// 두개의 배열을 병합
 		}
