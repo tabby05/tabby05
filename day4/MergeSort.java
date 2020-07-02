@@ -3,46 +3,46 @@ package day4;
 public class MergeSort {
 	
 	private static void mergeSort(int[] arr) {
-		int[] temp = new int[arr.length];	// ¹è¿­ÀÇ Å©±â ¸¸Å­ ÀÓ½Ã ÀúÀå°ø°£ ÇÊ¿ä
-		mergeSort(arr, temp, 0, arr.length - 1);	// ¹è¿­À» Á¤·ÄÇÏ´Â ÇÔ¼ö: Á¤·ÄÇÒ ¹è¿­, ÀÓ½ÃÀúÀå°ø°£, ½ÃÀÛ, ³¡
+		int[] temp = new int[arr.length];	// ë°°ì—´ì˜ í¬ê¸° ë§Œí¼ ì„ì‹œ ì €ì¥ê³µê°„ í•„ìš”
+		mergeSort(arr, temp, 0, arr.length - 1);	// ë°°ì—´ì„ ì •ë ¬í•˜ëŠ” í•¨ìˆ˜: ì •ë ¬í•  ë°°ì—´, ì„ì‹œì €ì¥ê³µê°„, ì‹œì‘, ë
 	}
-	private static void mergeSort(int[] arr, int[] temp, int start, int end) {	// ¹è¿­À» Á¤·ÄÇÏ´Â ÇÔ¼ö (Àç±ÍÇÔ¼ö)
-		if (start < end) {	// start°¡ endº¸´Ù ÀÛÀ» °æ¿ì¿¡ÇÔ Àç±Í È£Ãâ
-			int mid = (start + end) / 2;		// ¹è¿­À» °¡¿îµ¥·Î Àß¶ó¾ß ÇÏ¹Ç·Î °¡¿îµ¥ index°¡ ÇÊ¿ä.
-			mergeSort(arr, temp, start, mid); 	// ¹è¿­ÀÇ ×ºÎºĞ
-			mergeSort(arr, temp, mid + 1, end);	// ¹è¿­ÀÇ µŞºÎºĞ
-			merge(arr, temp, start, mid, end);	// µÎ°³ÀÇ ¹è¿­À» º´ÇÕ
+	private static void mergeSort(int[] arr, int[] temp, int start, int end) {	// ë°°ì—´ì„ ì •ë ¬í•˜ëŠ” í•¨ìˆ˜ (ì¬ê·€í•¨ìˆ˜)
+		if (start < end) {	// startê°€ endë³´ë‹¤ ì‘ì„ ê²½ìš°ì—í•¨ ì¬ê·€ í˜¸ì¶œ
+			int mid = (start + end) / 2;		// ë°°ì—´ì„ ê°€ìš´ë°ë¡œ ì˜ë¼ì•¼ í•˜ë¯€ë¡œ ê°€ìš´ë° indexê°€ í•„ìš”.
+			mergeSort(arr, temp, start, mid); 	// ë°°ì—´ì˜ Âç•™è§€
+			mergeSort(arr, temp, mid + 1, end);	// ë°°ì—´ì˜ ë’·ë¶€ë¶„
+			merge(arr, temp, start, mid, end);	// ë‘ê°œì˜ ë°°ì—´ì„ ë³‘í•©
 		}
 	}
 	
-	private static void merge(int[] arr, int[] temp, int start, int mid, int end) {	// ¹è¿­À» º´ÇÕÇÏ´Â ÇÔ¼ö
+	private static void merge(int[] arr, int[] temp, int start, int mid, int end) {	// ë°°ì—´ì„ ë³‘í•©í•˜ëŠ” í•¨ìˆ˜
 		for(int i = start; i <= end; i++) {
-			temp[i] = arr[i];	// ÀÓ½Ã ÀúÀå°ø°£¿¡ ¹è¿­ ÀúÀå
+			temp[i] = arr[i];	// ì„ì‹œ ì €ì¥ê³µê°„ì— ë°°ì—´ ì €ì¥
 		}
-		int part1 = start;		// Ã¹ ¹øÂ° ¹è¿­ÀÇ Ã¹¹øÂ° °ª
-		int part2 = mid + 1;	// µÎ ¹øÂ° ¹è¿­ÀÇ Ã¹¹øÂ° °ª
-		int index = start;		// ¾çÂÊ ¹è¿­¿¡¼­ ÀÛÀº °ªÀ» ÇÏ³ª¾¿ º¹»çÇÒ ¶§¸¶´Ù, 
-								// °á°ú ¹è¿­ ¹æ¿¡ ¾îµğ¿¡ ÀúÀåÇØ¾ßÇÏ´ÂÁö ¾Ë¾Æ¾ß ÇÏ¹Ç·Î º¹»ç ÈÄ ÇÏ³ª¾¿ ´Ã·Á¼­
-								// ÀúÀåÇÒ °÷À» ±â¾ïÇÏ°í ÀÖµµ·Ï ÇÔ.
+		int part1 = start;	// ì²« ë²ˆì§¸ ë°°ì—´ì˜ ì²«ë²ˆì§¸ ê°’
+		int part2 = mid + 1;	// ë‘ ë²ˆì§¸ ë°°ì—´ì˜ ì²«ë²ˆì§¸ ê°’
+		int index = start;	// ì–‘ìª½ ë°°ì—´ì—ì„œ ì‘ì€ ê°’ì„ í•˜ë‚˜ì”© ë³µì‚¬í•  ë•Œë§ˆë‹¤, 
+					// ê²°ê³¼ ë°°ì—´ ë°©ì— ì–´ë””ì— ì €ì¥í•´ì•¼í•˜ëŠ”ì§€ ì•Œì•„ì•¼ í•˜ë¯€ë¡œ ë³µì‚¬ í›„ í•˜ë‚˜ì”© ëŠ˜ë ¤ì„œ
+					// ì €ì¥í•  ê³³ì„ ê¸°ì–µí•˜ê³  ìˆë„ë¡ í•¨.
 		
-		while (part1 <= mid && part2 <= end) {	// Ã¹¹øÂ° ¹è¿­ÀÌ ³¡±îÁö °¡°Å³ª µÎ¹øÂ° ¹è¿­ÀÌ ³¡±îÁö °¥ °æ¿ì
-			if(temp[part1] <= temp[part2]) {	// ¾ÕÀÇ °ªÀÌ ÀÛÀº °æ¿ì
-				arr[index] = temp[part1];		// ¾ÕÀÇ °ªÀ» ¿Å±â°í
-				part1++;						// ¾ÕÂÊ Æ÷ÀÎÅÍ¸¦ µÚ·Î ¿Å±è.
+		while (part1 <= mid && part2 <= end) {		// ì²«ë²ˆì§¸ ë°°ì—´ì´ ëê¹Œì§€ ê°€ê±°ë‚˜ ë‘ë²ˆì§¸ ë°°ì—´ì´ ëê¹Œì§€ ê°ˆ ê²½ìš°
+			if(temp[part1] <= temp[part2]) {	// ì•ì˜ ê°’ì´ ì‘ì€ ê²½ìš°
+				arr[index] = temp[part1];	// ì•ì˜ ê°’ì„ ì˜®ê¸°ê³ 
+				part1++;			// ì•ìª½ í¬ì¸í„°ë¥¼ ë’¤ë¡œ ì˜®ê¹€.
 			} 
 			else {
-				arr[index] = temp[part2];	// µŞÂÊ ¹è¿­¿¡¼­ °¡Á®´Ù°¡ º¹»ç
-				part2++;					// µŞ¶È Æ÷ÀÎÅÍ¸¦ µÚ·Î ¿Å±è.
+				arr[index] = temp[part2];	// ë’·ìª½ ë°°ì—´ì—ì„œ ê°€ì ¸ë‹¤ê°€ ë³µì‚¬
+				part2++;			// ë’·ë˜‘ í¬ì¸í„°ë¥¼ ë’¤ë¡œ ì˜®ê¹€.
 			}
-			index++;	// (¾î´À ÂÊ ¹è¿­À» ¿Å±âµç)index¸¦ ÇÏ³ª ´Ã·ÁÁÜ.
+			index++;	// (ì–´ëŠ ìª½ ë°°ì—´ì„ ì˜®ê¸°ë“ )indexë¥¼ í•˜ë‚˜ ëŠ˜ë ¤ì¤Œ.
 		}
-		// µŞÂÊ ¹è¿­ÀÌ ºñ°í, ¾ÕÂÊ ¹è¿­¿¡ µ¥ÀÌÅÍ°¡ ³²¾ÆÀÖ´Â °æ¿ì
-		for(int i = 0; i <= mid - part1; i++) {	// ¾ÕÂÊ Æ÷ÀÎÅÍ°¡ ¹è¿­ÀÇ ³¡¿¡¼­ ³²Àº ¸¸±İ µ¹°Ô µÊ.	 
+		// ë’·ìª½ ë°°ì—´ì´ ë¹„ê³ , ì•ìª½ ë°°ì—´ì— ë°ì´í„°ê°€ ë‚¨ì•„ìˆëŠ” ê²½ìš°
+		for(int i = 0; i <= mid - part1; i++) {	// ì•ìª½ í¬ì¸í„°ê°€ ë°°ì—´ì˜ ëì—ì„œ ë‚¨ì€ ë§Œê¸ˆ ëŒê²Œ ë¨.	 
 			arr[index + i] = temp[part1 + i];
 		}
 	}
 	
-	private static void printArray(int[] arr) {	// ¹è¿­À» Ãâ·ÂÇÏ´Â ÇÔ¼ö
+	private static void printArray(int[] arr) {	// ë°°ì—´ì„ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 		for(int data : arr) {
 			System.out.print(data + " ");
 		}
@@ -50,9 +50,9 @@ public class MergeSort {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {2, 1, 4, 3, 6, 5};	// ¹è¿­ ¼±¾ğ
-		printArray(arr);				// Á¤·Ä Àü ¹è¿­ Ãâ·Â
-		mergeSort(arr);					// ¹è¿­ Á¤·Ä ÇÔ¼ö
-		printArray(arr);				// Á¤·Ä ÈÄ ¹è¿­ Ãâ·Â
+		int[] arr = {2, 1, 4, 3, 6, 5};		// ë°°ì—´ ì„ ì–¸
+		printArray(arr);	// ì •ë ¬ ì „ ë°°ì—´ ì¶œë ¥
+		mergeSort(arr);		// ë°°ì—´ ì •ë ¬ í•¨ìˆ˜
+		printArray(arr);	// ì •ë ¬ í›„ ë°°ì—´ ì¶œë ¥
 	}
 }
