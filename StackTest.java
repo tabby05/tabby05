@@ -29,7 +29,7 @@ public class StackTest {
 				System.out.println(stack.isEmpty()?1:0);			// (조건?a:b) 조건이 참일 경우 a, 거짓일 경우 b를 수행
 			} 
 			else if(input1.equals("top")) {
-				System.out.println(stack.isEmpty()?-1:stack.peek());// 스텍의 가장 위의 항목을 반환함.
+				System.out.println(stack.isEmpty()?-1:stack.peek());// 스텍의 가장 위의 항목을 반환함
 			}
 		}
 	}
